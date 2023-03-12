@@ -1,0 +1,8 @@
+FROM sdukshis/cppml
+
+ADD . /app
+WORKDIR /app/build
+RUN cmake .. && cmake --build . && mkdir saved_model \
+    && mv /app/data/* /app/build/
+ENTRYPOINT [ "./fashio_tb"] 
+
